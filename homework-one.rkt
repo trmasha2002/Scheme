@@ -1,7 +1,16 @@
-;; The first three lines of this file were inserted by DrRacket. They record metadata
-;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-beginner-reader.ss" "lang")((modname homework-one) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
 (define (my-gcd a b)
    (if (= b 0) a
    (my-gcd b (remainder a b))))
 
+(define (my-lcm a b)
+  (/ (* a b) (my-gcd a b)))
+
+(define (prime? a)
+   (if (< a 2) #f
+   (if (= a 2) #t
+   (check-prime a (+ (integer-sqrt a) 1)))))
+(define (check-prime a  n)
+      (if (= n 1) #t
+      (if (= (remainder a n) 0) #f (check-prime a (- n 1)))))
+
+(prime? 8)
