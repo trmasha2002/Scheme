@@ -56,11 +56,11 @@
     ((null? (cdr f)) (lambda (x) ((car f) x)))
     (else(lambda (x) ((car f) ((apply o (cdr f)) x))))))
 
-(define (f x) (* x 2))
+(define (f x) (+ x 2))
 (define (g x) (* x 3)) 
 (define (h x) (- x))
 
 ((o f g h) 1)
 ((o f g) 1)   
 ((o h) 1)     
-((o) 1)       
+((o) 1)         
